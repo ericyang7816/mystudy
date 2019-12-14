@@ -5,10 +5,9 @@ import matplotlib.pyplot as plt
 Image.MAX_IMAGE_PIXELS=10000000000
 fontpath = 'font.ttf'
 f = open(r'text.txt', 'r', encoding='utf-8').read()
-aimask=np.array(Image.open('1.png'))
-color=ImageColorGenerator(aimask)
 
-wordcloud=WordCloud(font_path=fontpath,background_color="white",mask=aimask,color_func=color,width=800,height=600,margin=2,repeat=True,mode="RGBA").generate(f)
+
+wordcloud=WordCloud(font_path=fontpath,background_color="white",width=1800,height=2400,margin=2,scale=2,repeat=True,prefer_horizontal=1.0).generate(f)
 
 plt.imshow(wordcloud)
 plt.axis("off")
